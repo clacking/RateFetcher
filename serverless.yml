@@ -3,7 +3,7 @@ service: serverless-nestjs
 provider:
   name: aws
   runtime: nodejs8.10
-  region: ap-northeast-1
+  region: us-east-1
 
 plugins:
   - serverless-offline
@@ -15,6 +15,7 @@ package:
     - test/**
     - nodemon.json
     - README.md
+    - client/**
 
 functions:
   index:

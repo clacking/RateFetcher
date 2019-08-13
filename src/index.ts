@@ -21,11 +21,12 @@ let cachedServer: Server;
 // Create the Nest.js server and convert it into an Express.js server
 async function bootstrapServer(): Promise<Server> {
   if (!cachedServer) {
-     const expressApp = express();
-     const nestApp = await NestFactory.create(AppModule, new ExpressAdapter(expressApp))
-     nestApp.use(eventContext());
-     await nestApp.init();
-     cachedServer = createServer(expressApp, undefined, binaryMimeTypes);
+    const expressApp = express();
+    const nestApp = await NestFactory.create(AppModule, new ExpressAdapter(expressApp))
+    nestApp.setGlobalPrefix('/api');
+    nestApp.use(eventContext());
+    await nestApp.init();
+    cachedServer = createServer(expressApp, undefined, binaryMimeTypes);
   }
   return cachedServer;
 }
