@@ -24,6 +24,7 @@
           </b-field>
         </div>
         <b-button @click="getRate">Check Rate</b-button>
+        <div v-if="shipping_rate">{{shipping_rate}}</div>
     </div>
   </section>
 </template>
@@ -56,6 +57,7 @@ export default {
   methods: {
     async getRate() {
       const data = await this.$axios.$post('/api/fetch')
+      this.shipping_rate = data
     }
   }
 }

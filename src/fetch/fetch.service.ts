@@ -6,7 +6,8 @@ import { ShopifySite } from './interface/rate.interface';
 export class FetchService {
     async fetchRandomVariant(url: string): Promise<number> {
         try {
-            const product = await fetch(`${url}.json`);
+            const { origin, pathname } = new URL(url);
+            const product = await fetch(`${origin}${pathname}.json`);
             const json = await product.json();
             const variant = json.product.variants[0].id;
             return variant;
