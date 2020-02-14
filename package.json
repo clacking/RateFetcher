@@ -30,7 +30,7 @@
     "@nestjs/platform-express": "^6.0.0",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^2.6.0",
-    "aws-lambda": "^0.1.2",
+    "aws-lambda": "^1.0.5",
     "aws-serverless-express": "^3.3.6",
     "concurrently": "^4.1.1",
     "express": "^4.17.1",
